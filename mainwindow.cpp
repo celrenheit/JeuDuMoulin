@@ -1,23 +1,32 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "piece.h"
+#include "gamefield.h"
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent)
+    QWidget(parent)
 {
 
-
-    QWidget *window = new QWidget;
+    QWidget *window = new QWidget(this);
     initButton = new QPushButton("Init");
-    QLabel *button2 = new QLabel("Click the buttons to init the game");
+    _labelInfo = new QLabel("Click the buttons to init the game");
 
-    QHBoxLayout *layout = new QHBoxLayout;
-    layout->addWidget(initButton,1);
-    layout->addWidget(button2,3);
+    QVBoxLayout *vLayout = new QVBoxLayout(window);
 
-    window->setLayout(layout);
-    window->show();
+    QHBoxLayout *hLayout = new QHBoxLayout;
+    hLayout->addWidget(initButton,0, Qt::AlignLeft);
+    hLayout->addWidget(_labelInfo,0, Qt::AlignRight);
+    vLayout->addLayout(hLayout);
 
+    GameField *painter = new GameField(window);
+    vLayout->addWidget(painter);
+
+
+    // setCentralWidget(window);
+    // centralWidget()->setLayout(vLayout);
+
+    window->setFixedSize(500, 650);
+    window->setLayout(vLayout);
 
 }
 

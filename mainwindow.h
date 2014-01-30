@@ -5,7 +5,11 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QHBoxLayout>
+#include <QBoxLayout>
 #include <QLabel>
+#include <QPainter>
+#include "piece.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -21,6 +25,7 @@ public:
 private:
     Ui::MainWindow *ui;
     QPushButton *initButton;
+    QLabel *_labelInfo;
 };
 
 #endif // MAINWINDOW_H
