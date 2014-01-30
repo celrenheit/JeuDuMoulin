@@ -8,6 +8,7 @@
 #include <QBoxLayout>
 #include <QLabel>
 #include <QPainter>
+#include <QDebug>
 #include "piece.h"
 
 namespace Ui {

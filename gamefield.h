@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QPainter>
 #include <QPaintEvent>
+#include <QDebug>
+#include <QGridLayout>
 #include "position.h"
 class GameField : public QWidget
 {
@@ -13,10 +15,10 @@ public:
     void draw(QPainter *painter);
     int canvasWidth;
     int canvasHeight;
+    void drawSquare(QGridLayout *layout, int topLeftCorner, int bottomRightCorner);
+    void initPositions(QGridLayout *layout, int topLeftCorner, int bottomRightCorner);
 
 protected:
-    void paintEvent(QPaintEvent * event);
-
 signals:
 
 public slots:
