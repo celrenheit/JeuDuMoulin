@@ -6,7 +6,9 @@
 #include <QPaintEvent>
 #include <QDebug>
 #include <QGridLayout>
+#include "mainwindow.h"
 #include "position.h"
+
 class GameField : public QWidget
 {
     Q_OBJECT
@@ -16,8 +18,8 @@ public:
     int canvasWidth;
     int canvasHeight;
     void drawSquare(QGridLayout *layout, int topLeftCorner, int bottomRightCorner);
-    void initPositions(QGridLayout *layout, int topLeftCorner, int bottomRightCorner);
-
+    void initPositions(QGridLayout *layout);
+    QWidget *getMainWindow();
 protected:
 signals:
 
@@ -26,6 +28,7 @@ public slots:
 
 private:
     Position *_positions[7][7];
+    QWidget *mainWindow;
 
 };
 

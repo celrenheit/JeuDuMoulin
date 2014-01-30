@@ -1,13 +1,8 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "piece.h"
-#include "gamefield.h"
 
 MainWindow::MainWindow(QWidget *parent) :
-    QWidget(parent)
+    QWidget(parent), _currentPlayer("blue")
 {
-
-    QWidget *window = new QWidget(this);
     initButton = new QPushButton("Init");
     _labelInfo = new QLabel("Click the buttons to init the game");
 
@@ -18,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     hLayout->addWidget(_labelInfo,0, Qt::AlignRight);
     vLayout->addLayout(hLayout);
 
-    GameField *gameField = new GameField(window);
+    GameField *gameField = new GameField(this);
     gameField->setMinimumHeight(300);
     gameField->adjustSize();
     vLayout->addWidget(gameField, 1);
@@ -48,4 +43,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+}
+
+
+const char *MainWindow::getCurrentPlayer()
+{
+    return this->_currentPlayer;
+}
+
+void MainWindow::setCurrentPlayer(const char *player)
+{
+    this->_currentPlayer = player;
 }

@@ -1,19 +1,33 @@
 #ifndef PIECE_H
 #define PIECE_H
 
+#include <QWidget>
 #include <QDebug>
-#include "position.h"
+#include <QPainter>
+#include <QMouseEvent>
+#include <QBrush>
+#include <QString>
 
-class Piece
+class Piece : public QWidget
 {
-public:
-    Piece();
 
-    void mousePressEvent( QMouseEvent *event);
+public:
+    explicit Piece(QWidget *parent = 0);
+    void paintEvent(QPaintEvent * event);
+    bool isDropped();
+    ~Piece();
+    void setColor(const char *color);
+    void setRadius(int radius);
+
+signals:
+
+public slots:
 
 private:
-    QColor *_color;
+    QColor _color;
     QPoint *_position;
+    QString _colorName;
+    int _radius;
 };
 
 #endif // PIECE_H
