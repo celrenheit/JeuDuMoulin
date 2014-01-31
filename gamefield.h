@@ -6,8 +6,8 @@
 #include <QPaintEvent>
 #include <QDebug>
 #include <QGridLayout>
-#include "mainwindow.h"
 #include "position.h"
+#include "mainwindow.h"
 
 class GameField : public QWidget
 {
@@ -21,16 +21,21 @@ public:
     void initPositions(QGridLayout *layout);
     QWidget *getMainWindow();
     void paintEvent(QPaintEvent * event);
+const char * test() {
+    return "test";
+}
 
 protected:
 signals:
 
 public slots:
 
+    void restart();
 
 private:
     Position *_positions[7][7];
     QWidget *mainWindow;
+    QGridLayout *_gridLayout;
 
 };
 

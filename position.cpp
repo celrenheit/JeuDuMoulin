@@ -4,7 +4,7 @@ Position::Position(QWidget *parent) :
     QWidget(parent), gameField(parent)
 {
     this->_piece = new Piece(this);
-    //qDebug() << gameField->getMainWindow();
+    qDebug() << this->parentWidget();
 }
 
 

@@ -6,11 +6,11 @@ GameField::GameField(QWidget *parent) :
     setPalette(QPalette(QColor(250, 250, 200)));
     setAutoFillBackground(true);
 
-    QGridLayout *gridLayout = new QGridLayout(this);
+    this->_gridLayout = new QGridLayout(this);
 
-    this->initPositions(gridLayout);
+    this->initPositions(this->_gridLayout);
 
-    setLayout(gridLayout);
+    setLayout(this->_gridLayout);
 }
 
 void GameField::paintEvent(QPaintEvent * event)
@@ -33,7 +33,7 @@ void GameField::paintEvent(QPaintEvent * event)
 
 
 void GameField::initPositions(QGridLayout *layout) {
-    int x=0, y=0, lastX=0, lastY=0;
+    int x=0, y=0;
     for(y=0; y<7; y++) {
         for (x=0; x<7;x++) {
             if(Position::isValidPosition(x,y))
@@ -51,4 +51,18 @@ void GameField::initPositions(QGridLayout *layout) {
 
 QWidget * GameField::getMainWindow() {
     return this->mainWindow;
+}
+
+
+void GameField::restart() {
+    int x=0, y=0;
+
+    for(y=0; y<7; y++) {
+        for (x=0; x<7;x++) {
+            delete this->_positions[x][y];
+
+        }
+    }
+    this->initPositions(this->_gridLayout);
+    repaint();
 }

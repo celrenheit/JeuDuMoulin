@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     gameField->setMinimumHeight(300);
     gameField->adjustSize();
     vLayout->addWidget(gameField, 1);
+    connect(initButton, SIGNAL(clicked()), gameField, SLOT(restart()));
 
     QLabel *piecesLeftLabel = new QLabel("Nbre de pieces à placer");
     QLabel *bleuPlayerLabel = new QLabel("Joueur Bleu: 0");
