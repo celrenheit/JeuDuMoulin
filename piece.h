@@ -10,7 +10,7 @@
 
 class Piece : public QWidget
 {
-
+    Q_OBJECT
 public:
     explicit Piece(QWidget *parent = 0);
     void paintEvent(QPaintEvent * event);

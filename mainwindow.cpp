@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
-    QWidget(parent), _currentPlayer("blue")
+    QWidget(parent)
 {
     initButton = new QPushButton("Init");
     _labelInfo = new QLabel("Click the buttons to init the game");
@@ -46,13 +46,3 @@ MainWindow::~MainWindow()
 {
 }
 
-
-const char *MainWindow::getCurrentPlayer()
-{
-    return this->_currentPlayer;
-}
-
-void MainWindow::setCurrentPlayer(const char *player)
-{
-    this->_currentPlayer = player;
-}

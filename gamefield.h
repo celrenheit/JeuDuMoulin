@@ -15,15 +15,11 @@ class GameField : public QWidget
 public:
     explicit GameField(QWidget *parent = 0);
     void draw(QPainter *painter);
-    int canvasWidth;
-    int canvasHeight;
     void drawSquare(QGridLayout *layout, int topLeftCorner, int bottomRightCorner);
     void initPositions(QGridLayout *layout);
     QWidget *getMainWindow();
     void paintEvent(QPaintEvent * event);
-const char * test() {
-    return "test";
-}
+
 
 protected:
 signals:

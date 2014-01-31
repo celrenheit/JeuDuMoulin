@@ -10,10 +10,8 @@
 #include <QPainter>
 #include <QDebug>
 #include "gamefield.h"
+#include "position.h"
 
-namespace Ui {
-class MainWindow;
-}
 
 class MainWindow : public QWidget
 {
@@ -22,13 +20,9 @@ class MainWindow : public QWidget
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    const char *getCurrentPlayer();
-    void setCurrentPlayer(const char *player);
 private:
-    Ui::MainWindow *ui;
     QPushButton *initButton;
     QLabel *_labelInfo;
-    const char *_currentPlayer;
 };
 
 #endif // MAINWINDOW_H

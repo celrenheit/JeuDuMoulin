@@ -6,6 +6,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include "piece.h"
+
 class Position : public QWidget
 {
     Q_OBJECT

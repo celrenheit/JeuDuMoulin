@@ -1,18 +1,24 @@
 #include "position.h"
-
+bool blueAlternateColor = true;
 Position::Position(QWidget *parent) :
     QWidget(parent), gameField(parent)
 {
     this->_piece = new Piece(this);
-    qDebug() << this->parentWidget();
 }
 
 
 void Position::mousePressEvent( QMouseEvent *event)
 {
     qDebug() << "global Pos: " << event->globalPos();
-    this->_piece->setColor("blue");
-    this->_piece->setRadius(15);
+    if(blueAlternateColor)
+    {
+        this->_piece->setColor("blue");
+    }
+    else
+    {
+        this->_piece->setColor("red");
+    }
+    blueAlternateColor = !blueAlternateColor;
 }
 
 void Position::paintEvent(QPaintEvent * event)
@@ -38,3 +44,5 @@ void Position::paintEvent(QPaintEvent * event)
 const bool Position::isValidPosition(int x, int y) {
     return Position::isValidPositionSquare(x, y, 0, 6) || Position::isValidPositionSquare(x, y, 1,5) || Position::isValidPositionSquare(x, y, 2,4);
 }
+
+
