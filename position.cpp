@@ -21,12 +21,6 @@ void Position::mousePressEvent( QMouseEvent *event)
     blueAlternateColor = !blueAlternateColor;
 }
 
-void Position::paintEvent(QPaintEvent * event)
-{
- QPainter painter(this); //Pour repeindre tout le Widget
-
-
-}
 
  const bool Position::isValidPositionSquare(int x, int y, int topLeftCorner, int bottomRightCorner) {
 

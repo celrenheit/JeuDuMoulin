@@ -1,10 +1,12 @@
 #include "piece.h"
 
 Piece::Piece(QWidget *parent) :
-    QWidget(parent), _color(QColor(0,0,0)), _radius(10)
+    QWidget(parent),
+    _color(QColor(0,0,0)),
+    _radius(10),
+    _dropped(false)
 {
     this->setMinimumSize(40,40);
-    // this->setRadius(10);
 }
 
 
@@ -12,11 +14,8 @@ Piece::Piece(QWidget *parent) :
 
 void Piece::paintEvent(QPaintEvent * event)
 {
- QPainter painter(this); //Pour repeindre tout le Widget
+ QPainter painter(this);
 
-
-// QPen pen(Qt::black, 2, Qt::SolidLine);
-// painter.setPen(pen);
  painter.setBrush(QBrush(this->_color));
  painter.drawEllipse(QPoint(20,20), this->_radius, this->_radius);
 }
@@ -33,6 +32,8 @@ void Piece::setColor(const char *color) {
     if(this->_colorName == QString("red")) {
         this->_color =  QColor(255,0,0);
     }
+    this->setRadius(15);
+    this->_dropped = true;
     update();
 }
 

@@ -28,6 +28,7 @@ private:
     QPoint *_position;
     QString _colorName;
     int _radius;
+    bool _dropped;
 };
 
 #endif // PIECE_H
