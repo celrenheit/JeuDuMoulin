@@ -20,6 +20,8 @@ public:
     void drawSquare(QGridLayout *layout, int topLeftCorner, int bottomRightCorner);
     void initPositions(QGridLayout *layout);
     QWidget *getMainWindow();
+    void paintEvent(QPaintEvent * event);
+
 protected:
 signals:
 

@@ -12,6 +12,7 @@ void Position::mousePressEvent( QMouseEvent *event)
 {
     qDebug() << "global Pos: " << event->globalPos();
     this->_piece->setColor("blue");
+    this->_piece->setRadius(15);
 }
 
 void Position::paintEvent(QPaintEvent * event)

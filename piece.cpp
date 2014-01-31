@@ -1,7 +1,7 @@
 #include "piece.h"
 
 Piece::Piece(QWidget *parent) :
-    QWidget(parent), _color(QColor(0,0,0))
+    QWidget(parent), _color(QColor(0,0,0)), _radius(10)
 {
     this->setMinimumSize(40,40);
     // this->setRadius(10);
@@ -15,10 +15,10 @@ void Piece::paintEvent(QPaintEvent * event)
  QPainter painter(this); //Pour repeindre tout le Widget
 
 
- QPen pen(Qt::black, 2, Qt::SolidLine);
- painter.setPen(pen);
+// QPen pen(Qt::black, 2, Qt::SolidLine);
+// painter.setPen(pen);
  painter.setBrush(QBrush(this->_color));
- painter.drawEllipse(QPoint(20,20), 10, 10);
+ painter.drawEllipse(QPoint(20,20), this->_radius, this->_radius);
 }
 
 Piece::~Piece()
